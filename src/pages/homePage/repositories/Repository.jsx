@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   box-shadow: inset 0px -1px 0px #f59bff;
   cursor: pointer;
   background: ${(props) =>
-    props.isActive ? "var(--color-superlight)" : "transparent"};
+   props.isActive ? "var(--color-superlight)" : "transparent"};
 `;
 const RepositoryWrap = styled.div`
   padding: 20px 0;

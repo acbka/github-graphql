@@ -9,6 +9,7 @@ export const USER_QUERY = gql`
       email
       avatarUrl
       createdAt
+      url
       repositories {
         totalCount
       }

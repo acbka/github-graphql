@@ -3,7 +3,7 @@ import styled from "@emotion/styled/macro";
 import Button from "../../components/Button";
 import UserInfo from "./UserInfo";
 import GetRepositories from "./repositories/GetRepositories";
-import {Block} from "../../common/blockStyle"
+import { Block } from "../../common/blockStyle";
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -20,7 +20,6 @@ const UserInfoWrap = styled.div`
 `;
 const Title = styled.h3`
   color: var(--color-dark);
-  padding-bottom: 20px;
 `;
 const InputWrap = styled.div`
   display: grid;
@@ -37,7 +36,9 @@ const RepositoriesInfoWrap = styled.div`
   width: 100%;
   max-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
+  overflow: hidden;
 `;
 
 const HomePage = () => {
@@ -84,12 +85,10 @@ const HomePage = () => {
       </UserInfoWrap>
       <RepositoriesInfoWrap>
         {!!numberOfRepositories && (
-          <Block>
-            <GetRepositories
-              login={login}
-              numberOfRepositories={numberOfRepositories}
-            />
-          </Block>
+          <GetRepositories
+            login={login}
+            numberOfRepositories={numberOfRepositories}
+          />
         )}
       </RepositoriesInfoWrap>
     </Wrapper>

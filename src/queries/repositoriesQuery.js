@@ -13,7 +13,6 @@ export const REPOSITORIES_QUERY = gql`
           createdAt
           updatedAt
           description
-          homepageUrl
           url
         }
       }

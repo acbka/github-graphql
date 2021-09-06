@@ -30,7 +30,7 @@ const UserInfo = ({ login, getNumberOfRepositories }) => {
   if (error) return <p>User doesn't exist.</p>;
   const user = data.user;
   const date = formattedDate(user.createdAt);
-  getNumberOfRepositories(user.repositories.totalCount)
+  getNumberOfRepositories(user.repositories.totalCount);
 
   return (
     <Wrapper>
@@ -39,6 +39,12 @@ const UserInfo = ({ login, getNumberOfRepositories }) => {
       {user.bio && <p>{user.bio}</p>}
       {user.email && <p>Email: {user.email}</p>}
       <p>On GitHub since {date}</p>
+      <p>
+        URL:{" "}
+        <a href={user.url} target="_blank" rel="noreferrer">
+          {user.url}
+        </a>{" "}
+      </p>
     </Wrapper>
   );
 };

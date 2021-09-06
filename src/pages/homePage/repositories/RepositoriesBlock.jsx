@@ -1,13 +1,19 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled/macro";
 import Repository from "./Repository";
+import RepositoryInfo from "./RepositoryInfo";
+import { Block } from "../../../common/blockStyle";
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 50vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  overflow: hidden;
+`;
+const RepositoriesList = styled.div`
+  max-height: 60vh;
+  overflow: hidden;
 `;
 const Header = styled.div`
   display: grid;
@@ -17,11 +23,13 @@ const Header = styled.div`
   font-size: 16px;
 `;
 const RepositoriesArray = styled.div`
+  height: 100%;
   overflow: auto;
 `;
 
 const RepositoriesBlock = ({ repositories }) => {
   const [selected, setSelected] = useState(null);
+
   const list = repositories.map((item, index) => (
     <Repository
       key={index}
@@ -31,15 +39,26 @@ const RepositoriesBlock = ({ repositories }) => {
     />
   ));
 
-  return <div> <Wrapper>
-  <Header>
-    <div>Name</div>
-    <div>Created At</div>
-    <div>Updated At</div>
-  </Header>
-  <RepositoriesArray>
-   {list}
-  </RepositoriesArray>
-</Wrapper></div>;
+  return (
+    <Wrapper>
+      <Block>
+        <RepositoriesList>
+          <Header>
+            <div>Name</div>
+            <div>Created At</div>
+            <div>Updated At</div>
+          </Header>
+          <RepositoriesArray>{list}</RepositoriesArray>
+        </RepositoriesList>
+      </Block>
+      {selected && (
+        <Block>
+          <RepositoryInfo
+            repository={repositories.find((item) => item.id === selected)}
+          />
+        </Block>
+      )}
+    </Wrapper>
+  );
 };
 export default RepositoriesBlock;
