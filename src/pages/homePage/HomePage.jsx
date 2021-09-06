@@ -45,6 +45,7 @@ const StyledInput = styled.input`
 const HomePage = () => {
   const [inputValue, setInputValue] = useState("");
   const [login, setLogin] = useState("");
+  const [numberOfRepositories, setNumberOfRepositories] = useState(0);
 
   const handleChange = (e) => {
     setInputValue(e.target.value);
@@ -54,7 +55,7 @@ const HomePage = () => {
     setLogin(inputValue);
     setInputValue("");
   };
-
+console.log(numberOfRepositories)
   return (
     <Wrapper>
       <UserInfoWrap>
@@ -76,7 +77,10 @@ const HomePage = () => {
         </Block>
         {login && (
           <Block>
-            <UserInfo login={login} />
+            <UserInfo
+              login={login}
+              getNumberOfRepositories={setNumberOfRepositories}
+            />
           </Block>
         )}
       </UserInfoWrap>

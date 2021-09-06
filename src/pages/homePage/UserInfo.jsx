@@ -22,7 +22,7 @@ const UserName = styled.p`
   text-align: left;
 `;
 
-const UserInfo = ({ login }) => {
+const UserInfo = ({ login, getNumberOfRepositories }) => {
   const { loading, error, data } = useQuery(USER_QUERY, {
     variables: { login: login },
   });
@@ -30,7 +30,8 @@ const UserInfo = ({ login }) => {
   if (error) return <p>User doesn't exist.</p>;
   const user = data.user;
   const date = formattedDate(user.createdAt);
-
+  getNumberOfRepositories(user.repositories.totalCount)
+   
   console.log(user);
   return (
     <Wrapper>
