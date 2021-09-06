@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled/macro";
+import UserInfo from "./UserInfo";
 
 const Wrapper = styled.div`
   display: grid;
@@ -50,6 +51,7 @@ const HomePage = () => {
 
   const showUser = () => {
     setLogin(inputValue);
+    setInputValue("");
   };
 
   return (
@@ -64,9 +66,14 @@ const HomePage = () => {
               value={inputValue}
               onChange={handleChange}
             />
-            <button handleClick={showUser}>send </button>
+            <button onClick={showUser}>send </button>
           </InputWrap>
         </Block>
+        {login && (
+          <Block>
+            <UserInfo login={login} />
+          </Block>
+        )}
       </UserInfoWrap>
     </Wrapper>
   );
