@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled/macro";
+import Button from "../../components/Button";
 import UserInfo from "./UserInfo";
 
 const Wrapper = styled.div`
@@ -66,7 +67,11 @@ const HomePage = () => {
               value={inputValue}
               onChange={handleChange}
             />
-            <button onClick={showUser}>send </button>
+            <Button
+              title="send"
+              disabled={!inputValue ? "disabled" : ""}
+              handleClick={showUser}
+            />
           </InputWrap>
         </Block>
         {login && (

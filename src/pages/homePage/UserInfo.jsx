@@ -27,7 +27,7 @@ const UserInfo = ({ login }) => {
     variables: { login: login },
   });
   if (loading) return <p>Loading ...</p>;
-  if (error) return <p>Error :((</p>;
+  if (error) return <p>User doesn't exist.</p>;
   const user = data.user;
   const date = formattedDate(user.createdAt);
 
