@@ -5,10 +5,12 @@ import UserInfo from "./UserInfo";
 import Repositories from "./Repositories";
 
 const Wrapper = styled.div`
+  height: 100vh;
   display: grid;
-  grid-template-columns: 400px 1fr;
-  grid-gap: 30px;
+  grid-template-columns:  1fr 3fr;
+  grid-gap: 40px;
   padding: 40px;
+  overflow: hidden;
 `;
 const Block = styled.div`
   width: 100%;
@@ -43,9 +45,9 @@ const StyledInput = styled.input`
 `;
 const RepositoriesInfoWrap = styled.div`
   width: 100%;
+  max-height: 100vh;
   display: flex;
   align-items: flex-start;
-  width: 100%;
 `;
 
 const HomePage = () => {
@@ -61,7 +63,7 @@ const HomePage = () => {
     setLogin(inputValue);
     setInputValue("");
   };
-  console.log(numberOfRepositories);
+
   return (
     <Wrapper>
       <UserInfoWrap>

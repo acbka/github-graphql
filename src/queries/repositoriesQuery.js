@@ -8,6 +8,7 @@ export const REPOSITORIES_QUERY = gql`
         orderBy: { field: NAME, direction: ASC }
       ) {
         nodes {
+          id
           name
           createdAt
           updatedAt

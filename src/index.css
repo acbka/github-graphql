@@ -19,6 +19,7 @@ code {
 }
 
 :root {
+  --color-superlight: #f4c5f9;
   --color-light: #db38ed;
   --color-dark: #913ddb;
   --color-grey: #e4e7eb;

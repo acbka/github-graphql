@@ -31,8 +31,7 @@ const UserInfo = ({ login, getNumberOfRepositories }) => {
   const user = data.user;
   const date = formattedDate(user.createdAt);
   getNumberOfRepositories(user.repositories.totalCount)
-   
-  console.log(user);
+
   return (
     <Wrapper>
       <UserPhoto src={user.avatarUrl} />
