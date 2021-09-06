@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import styled from "@emotion/styled/macro";
 import Button from "../../components/Button";
 import UserInfo from "./UserInfo";
+import Repositories from "./Repositories";
 
 const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 400px 1fr;
   grid-gap: 30px;
-  align-items: center;
   padding: 40px;
 `;
 const Block = styled.div`
@@ -33,13 +33,19 @@ const Title = styled.h3`
 const InputWrap = styled.div`
   display: grid;
   grid-template-columns: 2fr 1fr;
-  grid-gap: 20px;
+  grid-gap: 30px;
   align-items: center;
 `;
 const StyledInput = styled.input`
   height: 40px;
   border: 2px solid var(--color-dark);
   border-radius: 4px;
+`;
+const RepositoriesInfoWrap = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
 `;
 
 const HomePage = () => {
@@ -55,7 +61,7 @@ const HomePage = () => {
     setLogin(inputValue);
     setInputValue("");
   };
-console.log(numberOfRepositories)
+  console.log(numberOfRepositories);
   return (
     <Wrapper>
       <UserInfoWrap>
@@ -84,6 +90,16 @@ console.log(numberOfRepositories)
           </Block>
         )}
       </UserInfoWrap>
+      <RepositoriesInfoWrap>
+        {!!numberOfRepositories && (
+          <Block>
+            <Repositories
+              login={login}
+              numberOfRepositories={numberOfRepositories}
+            />
+          </Block>
+        )}
+      </RepositoriesInfoWrap>
     </Wrapper>
   );
 };
