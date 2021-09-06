@@ -1,13 +1,14 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import React from "react";
 import styled from "@emotion/styled/macro";
 import { useQuery } from "@apollo/client";
 import { USER_QUERY } from "../../queries/userQuery";
+import { formattedDate } from "../../common/formattedDate";
 
 const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
 `;
 const UserPhoto = styled.img`
@@ -16,14 +17,8 @@ const UserPhoto = styled.img`
   display: block;
   border-radius: 5px;
 `;
-const InfoWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  justify-content: space-between;
-`;
 const UserName = styled.p`
-  padding: 20px 0;
+  padding-top: 20px;
   text-align: left;
 `;
 
@@ -34,17 +29,16 @@ const UserInfo = ({ login }) => {
   if (loading) return <p>Loading ...</p>;
   if (error) return <p>Error :((</p>;
   const user = data.user;
+  const date = formattedDate(user.createdAt);
 
   console.log(user);
   return (
     <Wrapper>
-      <div>
-        <UserPhoto src={user.avatarUrl} />
-        <UserName>Name: {user.name ? user.name : user.login}</UserName>
-        <p>{user.bio}</p>
-        <p>{user.email}</p>
-      </div>
-      <InfoWrap></InfoWrap>
+      <UserPhoto src={user.avatarUrl} />
+      <UserName>Name: {user.name ? user.name : user.login}</UserName>
+      {user.bio && <p>{user.bio}</p>}
+      {user.email && <p>Email: {user.email}</p>}
+      <p>On GitHub since {date}</p>
     </Wrapper>
   );
 };
