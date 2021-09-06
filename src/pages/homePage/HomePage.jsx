@@ -2,26 +2,16 @@ import React, { useState } from "react";
 import styled from "@emotion/styled/macro";
 import Button from "../../components/Button";
 import UserInfo from "./UserInfo";
-import Repositories from "./Repositories";
+import GetRepositories from "./repositories/GetRepositories";
+import {Block} from "../../common/blockStyle"
 
 const Wrapper = styled.div`
   height: 100vh;
   display: grid;
-  grid-template-columns:  1fr 3fr;
+  grid-template-columns: 1fr 3fr;
   grid-gap: 40px;
   padding: 40px;
   overflow: hidden;
-`;
-const Block = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border: 1px solid #e3e3e3;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
-  padding: 20px;
-  margin-bottom: 12px;
 `;
 const UserInfoWrap = styled.div`
   width: 100%;
@@ -95,7 +85,7 @@ const HomePage = () => {
       <RepositoriesInfoWrap>
         {!!numberOfRepositories && (
           <Block>
-            <Repositories
+            <GetRepositories
               login={login}
               numberOfRepositories={numberOfRepositories}
             />

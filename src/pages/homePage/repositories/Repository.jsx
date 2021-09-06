@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled/macro";
-import { formattedDate } from "../../common/formattedDate";
+import { formattedDate } from "../../../common/formattedDate";
 
 const Wrapper = styled.div`
   display: grid;
