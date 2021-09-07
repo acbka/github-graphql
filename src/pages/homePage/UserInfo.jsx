@@ -3,6 +3,7 @@ import styled from "@emotion/styled/macro";
 import { useQuery } from "@apollo/client";
 import { USER_QUERY } from "../../queries/userQuery";
 import { formattedDate } from "../../common/formattedDate";
+import { Paragraph } from "../../common/style";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -38,13 +39,13 @@ const UserInfo = ({ login, getNumberOfRepositories }) => {
       <UserName>Name: {user.name ? user.name : user.login}</UserName>
       {user.bio && <p>{user.bio}</p>}
       {user.email && <p>Email: {user.email}</p>}
-      <p>On GitHub since {date}</p>
-      <p>
+      <Paragraph>On GitHub since {date}</Paragraph>
+      <Paragraph>
         URL:{" "}
         <a href={user.url} target="_blank" rel="noreferrer">
           {user.url}
         </a>{" "}
-      </p>
+      </Paragraph>
     </Wrapper>
   );
 };

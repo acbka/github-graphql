@@ -14,6 +14,7 @@ export const REPOSITORIES_QUERY = gql`
           updatedAt
           description
           url
+          isPrivate
         }
       }
     }

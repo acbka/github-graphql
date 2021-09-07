@@ -11,3 +11,10 @@ export const Block = styled.div`
   padding: 20px;
   margin-bottom: 12px;
 `;
+export const Paragraph = styled.p`
+   padding-bottom: 5px;
+   display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+`

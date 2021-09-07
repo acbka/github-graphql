@@ -3,7 +3,7 @@ import styled from "@emotion/styled/macro";
 import Button from "../../components/Button";
 import UserInfo from "./UserInfo";
 import GetRepositories from "./repositories/GetRepositories";
-import { Block } from "../../common/blockStyle";
+import { Block } from "../../common/style";
 
 const Wrapper = styled.div`
   height: 100vh;

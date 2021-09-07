@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "@emotion/styled/macro";
+import { Paragraph } from "../../../common/style";
 
 const Wrapper = styled.div`
   width: 100%;
-  min-height: 100x;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -16,14 +17,18 @@ const RepositoryInfo = ({ repository }) => {
   return (
     <Wrapper>
       <Title>Repository Info</Title>
-      <p>Name: {repository.name} </p>
-      <p>Description: {repository.description} </p>
-      <p>
-        URL:{" "}
-        <a href={repository.url} target="_blank" rel="noreferrer">
-          {repository.url}
-        </a>{" "}
-      </p>
+      <Paragraph>Name: {repository.name} </Paragraph>
+      <Paragraph>Description: {repository.description} </Paragraph>
+      {repository.isPrivate ? (
+        <Paragraph>It is a private repository.</Paragraph>
+      ) : (
+        <Paragraph>
+          URL:{" "}
+          <a href={repository.url} target="_blank" rel="noreferrer">
+            {repository.url}
+          </a>{" "}
+        </Paragraph>
+      )}
     </Wrapper>
   );
 };

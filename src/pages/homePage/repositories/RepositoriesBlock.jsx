@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "@emotion/styled/macro";
 import Repository from "./Repository";
 import RepositoryInfo from "./RepositoryInfo";
-import { Block } from "../../../common/blockStyle";
+import { Block } from "../../../common/style";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -12,8 +12,9 @@ const Wrapper = styled.div`
   overflow: hidden;
 `;
 const RepositoriesList = styled.div`
-  max-height: 60vh;
+  display: flex;
   overflow: hidden;
+  height: 100%;
 `;
 const Header = styled.div`
   display: grid;
@@ -41,16 +42,16 @@ const RepositoriesBlock = ({ repositories }) => {
 
   return (
     <Wrapper>
-      <Block>
-        <RepositoriesList>
+      <RepositoriesList>
+        <Block>
           <Header>
             <div>Name</div>
             <div>Created At</div>
             <div>Updated At</div>
           </Header>
           <RepositoriesArray>{list}</RepositoriesArray>
-        </RepositoriesList>
-      </Block>
+        </Block>
+      </RepositoriesList>
       {selected && (
         <Block>
           <RepositoryInfo
