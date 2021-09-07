@@ -5,14 +5,12 @@ export const REPOSITORIES_QUERY = gql`
     user(login: $login) {
       repositories(
         last: $numberOfRepositories
+        ownerAffiliations: [OWNER]
         orderBy: { field: NAME, direction: ASC }
       ) {
         nodes {
           id
           name
-          owner {
-            login
-          }
           createdAt
           updatedAt
           description

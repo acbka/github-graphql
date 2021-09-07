@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled/macro";
-import { Paragraph } from "../../../common/style";
+import { Title, Paragraph } from "../style";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -9,14 +9,12 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
 `;
-const Title = styled.h3`
-  color: var(--color-dark);
-  padding-bottom: 10px;
-`;
+
 const RepositoryInfo = ({ repository }) => {
   return (
     <Wrapper>
-      <Title>Repository Info</Title>
+        <Title>Repository Info</Title>
+        <div>
       <Paragraph>Name: {repository.name} </Paragraph>
       <Paragraph>Description: {repository.description} </Paragraph>
       {repository.isPrivate ? (
@@ -29,6 +27,7 @@ const RepositoryInfo = ({ repository }) => {
           </a>{" "}
         </Paragraph>
       )}
+      </div>
     </Wrapper>
   );
 };

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "@emotion/styled/macro";
 import Repository from "./Repository";
 import RepositoryInfo from "./RepositoryInfo";
-import { Block } from "../../../common/style";
+import { Block, Title } from "../style";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -31,19 +31,22 @@ const RepositoriesArray = styled.div`
 const RepositoriesBlock = ({ repositories, user }) => {
   const [selected, setSelected] = useState(null);
 
-  const list = repositories.map((item, index) => {return item.owner.login === user &&(
-item.owner.login === user &&    <Repository
-      key={index}
-      repository={item}
-      selected={selected}
-      getSelected={setSelected}
-    />
-  )});
+  const list = repositories.map((item, index) => {
+    return (
+      <Repository
+        key={index}
+        repository={item}
+        selected={selected}
+        getSelected={setSelected}
+      />
+    );
+  });
 
   return (
     <Wrapper>
       <RepositoriesList>
         <Block>
+          <Title>Repositories</Title>
           <Header>
             <div>Name</div>
             <div>Created At</div>

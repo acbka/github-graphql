@@ -1,9 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled/macro";
-import { useQuery } from "@apollo/client";
-import { USER_QUERY } from "../../queries/userQuery";
-import { formattedDate } from "../../common/formattedDate";
-import { Paragraph } from "../../common/style";
+import { formattedDate } from "../../../common/formattedDate";
+import { Paragraph } from "../style";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -18,25 +16,13 @@ const UserPhoto = styled.img`
   display: block;
   border-radius: 5px;
 `;
-const UserName = styled.p`
-  padding-top: 20px;
-  text-align: left;
-`;
-
-const UserInfo = ({ login, getNumberOfRepositories }) => {
-  const { loading, error, data } = useQuery(USER_QUERY, {
-    variables: { login: login },
-  });
-  if (loading) return <p>Loading ...</p>;
-  if (error) return <p>User doesn't exist.</p>;
-  const user = data.user;
+const UserInfo = ({ user }) => {
   const date = formattedDate(user.createdAt);
-  getNumberOfRepositories(user.repositories.totalCount);
 
   return (
     <Wrapper>
       <UserPhoto src={user.avatarUrl} />
-      <UserName>Name: {user.name ? user.name : user.login}</UserName>
+      <Paragraph>Name: {user.name ? user.name : user.login}</Paragraph>
       {user.bio && <p>{user.bio}</p>}
       {user.email && <p>Email: {user.email}</p>}
       <Paragraph>On GitHub since {date}</Paragraph>

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled/macro";
 import Button from "../../components/Button";
-import UserInfo from "./UserInfo";
+import GetUser from "./user/GetUser";
 import GetRepositories from "./repositories/GetRepositories";
-import { Block } from "../../common/style";
+import { Block, Title } from "./style";
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -17,9 +17,6 @@ const UserInfoWrap = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-`;
-const Title = styled.h3`
-  color: var(--color-dark);
 `;
 const InputWrap = styled.div`
   display: grid;
@@ -76,7 +73,7 @@ const HomePage = () => {
         </Block>
         {login && (
           <Block>
-            <UserInfo
+            <GetUser
               login={login}
               getNumberOfRepositories={setNumberOfRepositories}
             />

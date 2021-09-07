@@ -1,8 +1,8 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import React from "react";
 import { useQuery } from "@apollo/client";
 import { REPOSITORIES_QUERY } from "../../../queries/repositoriesQuery";
 import RepositoriesBlock from "./RepositoriesBlock";
+import Spinner from "../../../components/Spinner";
 
 const GetRepositories = ({ login, numberOfRepositories }) => {
   const { loading, error, data } = useQuery(REPOSITORIES_QUERY, {
@@ -11,8 +11,8 @@ const GetRepositories = ({ login, numberOfRepositories }) => {
       numberOfRepositories: numberOfRepositories,
     },
   });
-  if (loading) return <p>Loading ...</p>;
-  if (error) return <p>Error :((((</p>;
+  if (loading) return <Spinner /> ;
+  if (error) return <></>;
   const repositories = data.user.repositories.nodes;
 
   return <RepositoriesBlock repositories={repositories} user={login} />;
