@@ -10,6 +10,9 @@ export const REPOSITORIES_QUERY = gql`
         nodes {
           id
           name
+          owner {
+            login
+          }
           createdAt
           updatedAt
           description

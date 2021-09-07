@@ -15,6 +15,6 @@ const GetRepositories = ({ login, numberOfRepositories }) => {
   if (error) return <p>Error :((((</p>;
   const repositories = data.user.repositories.nodes;
 
-  return <RepositoriesBlock repositories={repositories} />;
+  return <RepositoriesBlock repositories={repositories} user={login} />;
 };
 export default GetRepositories;

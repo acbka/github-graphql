@@ -28,17 +28,17 @@ const RepositoriesArray = styled.div`
   overflow: auto;
 `;
 
-const RepositoriesBlock = ({ repositories }) => {
+const RepositoriesBlock = ({ repositories, user }) => {
   const [selected, setSelected] = useState(null);
 
-  const list = repositories.map((item, index) => (
-    <Repository
+  const list = repositories.map((item, index) => {return item.owner.login === user &&(
+item.owner.login === user &&    <Repository
       key={index}
       repository={item}
       selected={selected}
       getSelected={setSelected}
     />
-  ));
+  )});
 
   return (
     <Wrapper>
