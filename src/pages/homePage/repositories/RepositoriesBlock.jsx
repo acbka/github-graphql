@@ -71,15 +71,6 @@ const RepositoriesBlock = ({ repositories }) => {
               Updated At
             </HeaderTitle>
           </Header>
-          {/* <Header>
-            <HeaderTitle onClick={sortArray}>Name</HeaderTitle>
-            <HeaderTitle onClick={sortArray}>
-              Created At
-            </HeaderTitle>
-            <HeaderTitle onClick={sortArray}>
-              Updated At
-            </HeaderTitle>
-          </Header> */}
           <RepositoriesArray>{list}</RepositoriesArray>
         </Block>
       </RepositoriesList>
