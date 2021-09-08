@@ -12,6 +12,10 @@ const Wrapper = styled.div`
   grid-gap: 40px;
   padding: 40px;
   overflow: hidden;
+  @media screen and (max-width: 500px) {
+    grid-template-columns: 1fr;
+    height: 100%;
+  }
 `;
 const UserInfoWrap = styled.div`
   width: 100%;
