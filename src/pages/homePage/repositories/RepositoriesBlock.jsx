@@ -3,7 +3,6 @@ import styled from "@emotion/styled/macro";
 import Repository from "./Repository";
 import RepositoryInfo from "./RepositoryInfo";
 import { Block, Title } from "../style";
-import _ from "lodash";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -41,13 +40,11 @@ const RepositoriesBlock = ({ repositories }) => {
     const newArray =
       sortKey === value
         ? [...sortedRepositories].reverse()
-        : value === "name"
-        ? [...sortedRepositories].sort((a, b) => {
-            return a.name.toLowerCase() < b.name.toLowerCase()
+        : [...sortedRepositories].sort((a, b) => {
+            return a[value].toLowerCase() < b[value].toLowerCase()
               ? -1
-              : Number(a.name.toLowerCase() > b.name.toLowerCase());
-          })
-        : _.sortBy(sortedRepositories, value);
+              : Number(a[value].toLowerCase() > b[value].toLowerCase());
+          });
     setSortedRepositories(newArray);
     setSortKey(value);
   };
