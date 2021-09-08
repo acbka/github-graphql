@@ -10,9 +10,19 @@ const Wrapper = styled.div`
   cursor: pointer;
   background: ${(props) =>
     props.isActive ? "var(--color-superlight)" : "transparent"};
+  @media screen and (max-width: 500px) {
+    display: flex;
+    justify-content: space-between;
+  }
 `;
 const RepositoryWrap = styled.div`
   padding: 20px 0;
+`;
+const UpdateWrap = styled.div`
+  padding: 20px 0;
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 `;
 
 const Repository = ({ repository, selected, getSelected }) => {
@@ -27,7 +37,7 @@ const Repository = ({ repository, selected, getSelected }) => {
     >
       <RepositoryWrap>{repository.name}</RepositoryWrap>
       <RepositoryWrap>{createdDate}</RepositoryWrap>
-      <RepositoryWrap>{updatedDate}</RepositoryWrap>
+      <UpdateWrap>{updatedDate}</UpdateWrap>
     </Wrapper>
   );
 };

@@ -22,9 +22,19 @@ const Header = styled.div`
   padding: 20px 0;
   border-bottom: 2px solid var(--color-dark);
   font-size: 16px;
+  @media screen and (max-width: 500px) {
+    display: flex;
+    justify-content: space-between;
+  }
 `;
 const HeaderTitle = styled.div`
   cursor: pointer;
+`;
+const UpdateTitle = styled.div`
+  cursor: pointer;
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 `;
 const RepositoriesArray = styled.div`
   height: 100%;
@@ -70,9 +80,9 @@ const RepositoriesBlock = ({ repositories }) => {
             <HeaderTitle onClick={() => sortArray("createdAt")}>
               Created At
             </HeaderTitle>
-            <HeaderTitle onClick={() => sortArray("updatedAt")}>
+            <UpdateTitle onClick={() => sortArray("updatedAt")}>
               Updated At
-            </HeaderTitle>
+            </UpdateTitle>
           </Header>
           <RepositoriesArray>{list}</RepositoriesArray>
         </Block>
