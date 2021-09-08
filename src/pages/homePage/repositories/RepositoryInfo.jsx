@@ -13,20 +13,24 @@ const Wrapper = styled.div`
 const RepositoryInfo = ({ repository }) => {
   return (
     <Wrapper>
-        <Title>Repository Info</Title>
-        <div>
-      <Paragraph>Name: {repository.name} </Paragraph>
-      <Paragraph>Description: {repository.description} </Paragraph>
-      {repository.isPrivate ? (
-        <Paragraph>It is a private repository.</Paragraph>
-      ) : (
+      <Title>Repository Info</Title>
+      <div>
         <Paragraph>
-          URL:{" "}
-          <a href={repository.url} target="_blank" rel="noreferrer">
-            {repository.url}
-          </a>{" "}
+          <b>Name: </b> {repository.name}{" "}
         </Paragraph>
-      )}
+        <Paragraph>
+          <b>Description: </b> {repository.description}
+        </Paragraph>
+        {repository.isPrivate ? (
+          <Paragraph>It is a private repository.</Paragraph>
+        ) : (
+          <Paragraph>
+            <b> URL: </b>
+            <a href={repository.url} target="_blank" rel="noreferrer">
+              {repository.url}
+            </a>
+          </Paragraph>
+        )}
       </div>
     </Wrapper>
   );

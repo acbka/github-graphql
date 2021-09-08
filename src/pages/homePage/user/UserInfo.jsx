@@ -22,15 +22,28 @@ const UserInfo = ({ user }) => {
   return (
     <Wrapper>
       <UserPhoto src={user.avatarUrl} />
-      <Paragraph>Name: {user.name ? user.name : user.login}</Paragraph>
-      {user.bio && <p>{user.bio}</p>}
-      {user.email && <p>Email: {user.email}</p>}
-      <Paragraph>On GitHub since {date}</Paragraph>
       <Paragraph>
-        URL:{" "}
+        <b>Name: </b> {user.name ? user.name : user.login}
+      </Paragraph>
+      {user.bio && (
+        <p>
+          <b>Bio: </b> {user.bio}
+        </p>
+      )}
+      {user.email && (
+        <p>
+          <b>Email: </b>
+          {user.email}
+        </p>
+      )}
+      <Paragraph>
+        <b>On GitHub since </b> {date}
+      </Paragraph>
+      <Paragraph>
+        <b>URL: </b>
         <a href={user.url} target="_blank" rel="noreferrer">
           {user.url}
-        </a>{" "}
+        </a>
       </Paragraph>
     </Wrapper>
   );
