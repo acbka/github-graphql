@@ -16,8 +16,8 @@ const RepositoryWrap = styled.div`
 `;
 
 const Repository = ({ repository, selected, getSelected }) => {
-  const CreatedDate = formattedDate(repository.createdAt);
-  const UpdatedDate = formattedDate(repository.updatedAt);
+  const createdDate = formattedDate(repository.createdAt);
+  const updatedDate = formattedDate(repository.updatedAt);
   return (
     <Wrapper
       onClick={() =>
@@ -26,8 +26,8 @@ const Repository = ({ repository, selected, getSelected }) => {
       isActive={selected === repository.id}
     >
       <RepositoryWrap>{repository.name}</RepositoryWrap>
-      <RepositoryWrap>{CreatedDate}</RepositoryWrap>
-      <RepositoryWrap>{UpdatedDate}</RepositoryWrap>
+      <RepositoryWrap>{createdDate}</RepositoryWrap>
+      <RepositoryWrap>{updatedDate}</RepositoryWrap>
     </Wrapper>
   );
 };

@@ -35,12 +35,18 @@ const RepositoriesArray = styled.div`
 const RepositoriesBlock = ({ repositories }) => {
   const [selected, setSelected] = useState(null);
   const [sortedRepositories, setSortedRepositories] = useState(repositories);
-  const [sortKey, setSortKey] = useState("");
+  const [sortKey, setSortKey] = useState("name");
 
   const sortArray = (value) => {
     const newArray =
       sortKey === value
         ? [...sortedRepositories].reverse()
+        : value === "name"
+        ? [...sortedRepositories].sort((a, b) => {
+            return a.name.toLowerCase() < b.name.toLowerCase()
+              ? -1
+              : Number(a.name.toLowerCase() > b.name.toLowerCase());
+          })
         : _.sortBy(sortedRepositories, value);
     setSortedRepositories(newArray);
     setSortKey(value);
