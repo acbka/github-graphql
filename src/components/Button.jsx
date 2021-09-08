@@ -5,7 +5,7 @@ const Btn = styled.button`
   height: 44px;
   text-align: center;
   font-family: "Roboto", sans-serif;
-  font-size: 18px;
+  font-size: 1.1rem;
   font-weight: 700px;
   border: none;
   border-radius: 25px;

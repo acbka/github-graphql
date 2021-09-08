@@ -42,6 +42,7 @@ const HomePage = () => {
   const [inputData, setInputData] = useState("");
   const [login, setLogin] = useState("");
   const [numberOfRepositories, setNumberOfRepositories] = useState(0);
+  const [isUserLoaded, setIsUserLoaded] = useState(false);
 
   const getInputData = (value) => {
     setInputData(value);
@@ -50,7 +51,7 @@ const HomePage = () => {
   const showUser = () => {
     setLogin(inputData);
   };
-
+  
   return (
     <Wrapper>
       <UserInfoWrap>
@@ -70,6 +71,7 @@ const HomePage = () => {
             <GetUser
               login={login}
               getNumberOfRepositories={setNumberOfRepositories}
+              userLoaded={setIsUserLoaded}
             />
           </Block>
         )}
@@ -80,6 +82,9 @@ const HomePage = () => {
             login={login}
             numberOfRepositories={numberOfRepositories}
           />
+        )}
+        {!numberOfRepositories && isUserLoaded && (
+          <p>This user doesn't have repositories</p>
         )}
       </RepositoriesInfoWrap>
     </Wrapper>

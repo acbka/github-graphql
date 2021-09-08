@@ -1,17 +1,18 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 import { USER_QUERY } from "../../../queries/userQuery";
-import UserInfo from "./UserInfo"
+import UserInfo from "./UserInfo";
 import Spinner from "../../../components/Spinner";
 
-const GetUser= ({ login, getNumberOfRepositories  }) => {
+const GetUser = ({ login, getNumberOfRepositories, userLoaded }) => {
   const { loading, error, data } = useQuery(USER_QUERY, {
     variables: { login: login },
   });
-  if (loading) return <Spinner /> ;
+  if (loading) return <Spinner />;
   if (error) return <p>User doesn't exist.</p>;
   const user = data.user;
   getNumberOfRepositories(user.repositories.totalCount);
+  userLoaded(true);
 
   return <UserInfo user={user} />;
 };
