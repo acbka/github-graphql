@@ -12,11 +12,11 @@ import {
 import { setContext } from "@apollo/client/link/context";
 
 const httpLink = createHttpLink({
-  uri: "https://api.github.com/graphql",
+  uri: process.env.REACT_APP_GITHUB_GRAPHQL_URL,
 });
 
 const authLink = setContext((_, { headers }) => {
-  const token = "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";
+  const token = process.env.REACT_APP_TOKEN;
   return {
     headers: {
       ...headers,
