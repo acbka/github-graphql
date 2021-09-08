@@ -4,6 +4,7 @@ import Button from "../../components/Button";
 import GetUser from "./user/GetUser";
 import GetRepositories from "./repositories/GetRepositories";
 import { Block, Title } from "./style";
+import Input from "../../components/Input";
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -28,11 +29,6 @@ const InputWrap = styled.div`
   grid-gap: 30px;
   align-items: center;
 `;
-const StyledInput = styled.input`
-  height: 40px;
-  border: 2px solid var(--color-dark);
-  border-radius: 4px;
-`;
 const RepositoriesInfoWrap = styled.div`
   width: 100%;
   max-height: 100vh;
@@ -43,17 +39,16 @@ const RepositoriesInfoWrap = styled.div`
 `;
 
 const HomePage = () => {
-  const [inputValue, setInputValue] = useState("");
+  const [inputData, setInputData] = useState("");
   const [login, setLogin] = useState("");
   const [numberOfRepositories, setNumberOfRepositories] = useState(0);
 
-  const handleChange = (e) => {
-    setInputValue(e.target.value);
+  const getInputData = (value) => {
+    setInputData(value);
   };
 
   const showUser = () => {
-    setLogin(inputValue);
-    setInputValue("");
+    setLogin(inputData);
   };
 
   return (
@@ -62,15 +57,10 @@ const HomePage = () => {
         <Block>
           <Title>Enter user login </Title>
           <InputWrap>
-            <StyledInput
-              type="text"
-              name="input"
-              value={inputValue}
-              onChange={handleChange}
-            />
+            <Input type="text" setInput={getInputData} />
             <Button
               title="send"
-              disabled={!inputValue ? "disabled" : ""}
+              disabled={!inputData ? "disabled" : ""}
               handleClick={showUser}
             />
           </InputWrap>
